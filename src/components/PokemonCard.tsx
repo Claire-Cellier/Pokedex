@@ -1,6 +1,9 @@
 interface PokemonCardType {
+  pokemon : {
     name: string,
     imgSrc?: string,
+  }
+    
 }
 
 function PokemonCard({pokemon} : PokemonCardType) {
