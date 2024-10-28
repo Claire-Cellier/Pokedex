@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Un seul import pour les hooks
 
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
@@ -31,6 +31,12 @@ const pokemonList = [
   ];
 
 function App() {
+  useEffect(
+    () => {
+      alert("Hello pokemon trainer :)");
+    },
+    []
+  );
   const [pokemonIndex, setPokemonIndex] = useState(0);
   return (
     <>
