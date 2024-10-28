@@ -3,29 +3,21 @@ interface Pokemon {
     imgSrc?: string;
   }
   
-  interface NavBarProps {
+interface NavBarProps {
     pokemonIndex: number;
-    setPokemonIndex: (index: number) => void;
+    setPokemonIndex: (index: number) => void; // fonction sans retour,de renvoyer undefined.
     pokemonList: Pokemon[];
   }
   
   function NavBar({pokemonIndex, setPokemonIndex, pokemonList} : NavBarProps) {
     return (
       <>
-      <button 
-        type="button" 
-        onClick={() =>
-          setPokemonIndex(pokemonIndex > 0 ? pokemonIndex - 1 : pokemonList.length - 1)}
-        >Précédent
-      </button>
-        <button 
-        type="button" 
-        onClick={() =>
-          setPokemonIndex(pokemonIndex < pokemonList.length - 1 ? pokemonIndex + 1 : 0)}
-        >Suivant
-      </button>
+        {pokemonList.map((pokemon, index) => (
+          <button type="button" 
+          onClick={() => setPokemonIndex(index)}
+          key={pokemon.name}>{pokemon.name}</button>
+        ))}
       </>
-    )
-    }
-  
+    )}
+
   export default NavBar;
